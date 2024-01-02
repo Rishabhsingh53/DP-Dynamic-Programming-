@@ -19,4 +19,3 @@ def knapsack(ans , idx , W):
     dp[idx][W ] =  max(ans , max(inc , knapsack(ans , idx + 1 , W ))) # doesn't matter if possible or not
     return dp[idx][W]
 print(knapsack(0,0,7))
-print(dp)

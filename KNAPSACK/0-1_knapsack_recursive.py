@@ -2,14 +2,12 @@ arr = [1,3,4,5]
 profit = [1,4,5,7]
 weight = 7 
 
-def knapsack(ans , idx , W):    
-    if idx == len(arr):
-        return ans 
-    
-    if W >= arr[idx]: # possible h included 
-        inc = knapsack(ans + profit[idx] , idx + 1 , W - arr[idx] )
-    else: # not possible hence not included 
-        inc = 0
-    return max(ans , max(inc , knapsack(ans , idx + 1 , W ))) # doesn't matter if possible or not
+def knapsack_best(W,n):
+    if W == 0 or n == 0:
+        return 0 
+    if arr[n-1] <= W:
+        return max(profit[n - 1] + knapsack_best(W - arr[n-1], n - 1) , knapsack_best(W , n - 1))
+    else:
+        return knapsack_best(W , n - 1)
 
-print(knapsack(0,0,7))
+print(knapsack_best(7 , 4))
