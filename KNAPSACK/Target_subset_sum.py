@@ -1,6 +1,6 @@
 arr = [2 , 4 ,5, 7, 8, 5]
 sum = 100
-
+# RECURSION
 def recursive(curr, n):
     
     if curr == sum:
@@ -15,7 +15,7 @@ def recursive(curr, n):
     
 print(recursive(0 , 6))
 
-
+# DP
 def subset_sum(sum , n ):
     n = len(arr)
     dp = [[0] * (sum + 1) for _ in range(len(arr) + 1) ]
